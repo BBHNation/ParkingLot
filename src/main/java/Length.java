@@ -1,8 +1,10 @@
 class Length {
     private double value;
+    private LengthUnit unit;
 
-    Length(double value) {
+    Length(double value, LengthUnit unit) {
         this.value = value;
+        this.unit = unit;
     }
 
     boolean biggerThan(Length length) {
