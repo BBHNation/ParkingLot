@@ -15,4 +15,14 @@ public class LengthTest {
         // then
         Assert.assertTrue(result);
     }
+
+    @Test(expected = RuntimeException.class)
+    public void shouldThrowRuntimeException_whenCompare_givenTwoLengthWithSameValueAndDifferentUnit() {
+        //given
+        Length lengthOne = new Length(10, LengthUnit.CM);
+        Length lengthTwo = new Length(10, LengthUnit.M);
+
+        //when
+        lengthOne.equal(lengthTwo);
+    }
 }
