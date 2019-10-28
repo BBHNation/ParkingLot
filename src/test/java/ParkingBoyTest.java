@@ -12,7 +12,7 @@ import tw.session.parkinglot.Ticket;
 class ParkingBoyTest {
 
     @Test
-    void shouldParkCarInSort_whenParkCar_givenMoreThanOneParkingLots() {
+    void shouldParkCarOrdered_whenParkCar_givenMoreThanOneEmptyParkingLots() {
         //given
         ParkingLot parkingLotA = new ParkingLot(1);
         ParkingLot parkingLotB = new ParkingLot(1);
@@ -35,6 +35,29 @@ class ParkingBoyTest {
         assertEquals("CarBNum", ticketOfCarB.getCarNum());
         assertTrue(parkingLotA.isFull());
         assertTrue(parkingLotB.isFull());
+    }
+
+    @Test
+    void shouldParkCarOrdered_whenParkingCar_givenMoreThanOneNotEmptyParkingLot() {
+        //given
+        ParkingLot firstParkingLot = new ParkingLot(2);
+        ParkingLot secondParkingLot = new ParkingLot(2);
+        ParkingBoy parkingBoy = new ParkingBoy(firstParkingLot, secondParkingLot);
+        Ticket ticketOfFirstTempCar = parkingBoy.park(new Car("firstTempCarNum"));
+        parkingBoy.park(new Car("secondTempCarNum"));
+        parkingBoy.park(new Car("thirdTempCarNum"));
+        parkingBoy.pick(ticketOfFirstTempCar);
+        Car car = new Car("TheCarNum");
+
+        assertTrue(firstParkingLot.isNotFull());
+        assertTrue(firstParkingLot.isNotFull());
+
+        //when
+        parkingBoy.park(car);
+
+        //then
+        assertTrue(firstParkingLot.isFull());
+        assertTrue(secondParkingLot.isNotFull());
     }
 
     @Test

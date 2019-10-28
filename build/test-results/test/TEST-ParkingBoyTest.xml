@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ParkingBoyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-28T06:44:30" hostname="CNbinhan.bai" time="0.008">
+<testsuite name="ParkingBoyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-28T07:26:26" hostname="CNbinhan.bai" time="0.008">
   <properties/>
-  <testcase name="shouldParkFailed_whenParkCar_givenParkingBoyWithAllFullParkingLots()" classname="ParkingBoyTest" time="0.008"/>
+  <testcase name="shouldParkCarInSort_whenParkingCar_givenMoreThanOneNotEmptyParkingLot()" classname="ParkingBoyTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
