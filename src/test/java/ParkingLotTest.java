@@ -88,4 +88,20 @@ class ParkingLotTest {
         // then
         assertThrows(InvalidTicketException.class, () -> parkingLot.pick(ticket));
     }
+
+    @Test
+    void shouldGetTicketOfBCar_whenParkBCarAfterPickACar_givenFullParkingLotParkingACar() {
+        //given
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car aCar = new Car("A_CarNum");
+        Car bCar = new Car("B_CarNum");
+        Ticket ticketOfACar = parkingLot.park(aCar);
+
+        //when
+        parkingLot.pick(ticketOfACar);
+        Ticket ticketOfBCar = parkingLot.park(bCar);
+
+        //then
+        assertEquals("B_CarNum", ticketOfBCar.getCarNum());
+    }
 }
