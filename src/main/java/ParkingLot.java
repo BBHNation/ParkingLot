@@ -16,4 +16,7 @@ public class ParkingLot {
         return new Ticket();
     }
 
+    public Car pick(Ticket ticket) {
+        return this.car;
+    }
 }

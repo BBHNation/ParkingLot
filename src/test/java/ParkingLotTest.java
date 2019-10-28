@@ -1,3 +1,4 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -41,6 +42,20 @@ class ParkingLotTest {
         // then
         assertNotNull(firstTicket);
         assertThrows(ParkingLotFullException.class, () -> parkingLot.park(secondCar));
+    }
+
+    @Test
+    void shouldPickCar_whenPickCarWithTicket_givenParkingLotParkingTheCar() {
+        //given
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car car = new Car("TheCarNum");
+        Ticket ticket = parkingLot.park(car);
+
+        //when
+        Car pickedCar = parkingLot.pick(ticket);
+
+        //then
+        assertEquals("TheCarNum", pickedCar.getCarNum());
     }
 
 
