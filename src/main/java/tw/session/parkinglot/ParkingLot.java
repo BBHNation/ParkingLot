@@ -19,8 +19,14 @@ public class ParkingLot {
     }
 
     public Car pick(Ticket ticket) {
+        if (ticket.isNotValid()) {
+            throw new InvalidTicketException();
+        }
         if (this.car != null && ticket.getCarNum().equals(this.car.getCarNum())) {
-            return this.car;
+            Car car = this.car;
+            this.car = null;
+            ticket.destroy();
+            return car;
         }
         throw new ParkingLotNotParkingTheCarException();
     }

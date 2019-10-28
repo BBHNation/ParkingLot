@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ParkingLotTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-28T03:23:03" hostname="CNbinhan.bai" time="0.006">
+<testsuite name="ParkingLotTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-28T03:38:21" hostname="CNbinhan.bai" time="3.755">
   <properties/>
-  <testcase name="shouldPickCarFailed_whenPickCarWithTicket_givenParkingLotNotParkingTheCar()" classname="ParkingLotTest" time="0.006"/>
+  <testcase name="shouldPickCarFailed_whenPickCarWithInvalidTicket_givenParkingLotParkingTheCar()" classname="ParkingLotTest" time="3.755"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

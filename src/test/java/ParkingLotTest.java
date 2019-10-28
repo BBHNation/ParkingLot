@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 import tw.session.parkinglot.Car;
+import tw.session.parkinglot.InvalidTicketException;
 import tw.session.parkinglot.ParkingLot;
 import tw.session.parkinglot.ParkingLotFullException;
 import tw.session.parkinglot.ParkingLotNotParkingTheCarException;
@@ -73,5 +74,18 @@ class ParkingLotTest {
 
         //then
         assertThrows(ParkingLotNotParkingTheCarException.class, () -> parkingLotB.pick(ticket));
+    }
+
+    @Test
+    void shouldPickCarFailed_whenPickCarWithInvalidTicket_givenParkingLotParkingTheCar() {
+        //given
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car car = new Car("TheCarNum");
+        Ticket ticket = parkingLot.park(car);
+        car = parkingLot.pick(ticket);
+        parkingLot.park(car);
+
+        // then
+        assertThrows(InvalidTicketException.class, () -> parkingLot.pick(ticket));
     }
 }
