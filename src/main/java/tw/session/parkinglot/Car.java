@@ -1,3 +1,5 @@
+package tw.session.parkinglot;
+
 import lombok.Getter;
 
 @Getter

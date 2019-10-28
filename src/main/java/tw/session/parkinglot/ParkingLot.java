@@ -1,3 +1,5 @@
+package tw.session.parkinglot;
+
 public class ParkingLot {
 
     private int capacity;
@@ -13,10 +15,13 @@ public class ParkingLot {
             throw new ParkingLotFullException();
         }
         this.car = car;
-        return new Ticket();
+        return new Ticket(car.getCarNum());
     }
 
     public Car pick(Ticket ticket) {
-        return this.car;
+        if (this.car != null && ticket.getCarNum().equals(this.car.getCarNum())) {
+            return this.car;
+        }
+        throw new ParkingLotNotParkingTheCarException();
     }
 }

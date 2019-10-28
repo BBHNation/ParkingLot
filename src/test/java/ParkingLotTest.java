@@ -3,6 +3,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
+import tw.session.parkinglot.Car;
+import tw.session.parkinglot.ParkingLot;
+import tw.session.parkinglot.ParkingLotFullException;
+import tw.session.parkinglot.ParkingLotNotParkingTheCarException;
+import tw.session.parkinglot.Ticket;
 
 class ParkingLotTest {
 
@@ -58,5 +63,15 @@ class ParkingLotTest {
         assertEquals("TheCarNum", pickedCar.getCarNum());
     }
 
+    @Test
+    void shouldPickCarFailed_whenPickCarWithTicket_givenParkingLotNotParkingTheCar() {
+        //given
+        ParkingLot parkingLotA = new ParkingLot(1);
+        ParkingLot parkingLotB = new ParkingLot(1);
+        Car car = new Car("TheCarNum");
+        Ticket ticket = parkingLotA.park(car);
 
+        //then
+        assertThrows(ParkingLotNotParkingTheCarException.class, () -> parkingLotB.pick(ticket));
+    }
 }
