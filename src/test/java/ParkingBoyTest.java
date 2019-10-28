@@ -15,14 +15,24 @@ class ParkingBoyTest {
         ParkingLot parkingLotA = new ParkingLot(1);
         ParkingLot parkingLotB = new ParkingLot(1);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLotA, parkingLotB);
-        Car theCar = new Car("TheCarNum");
+        Car carA = new Car("CarANum");
+        Car carB = new Car("CarBNum");
 
         //when
-        Ticket ticket = parkingBoy.park(theCar);
+        Ticket ticketOfCarA = parkingBoy.park(carA);
 
         //then
-        assertEquals("TheCarNum", ticket.getCarNum());
+        assertEquals("CarANum", ticketOfCarA.getCarNum());
         assertTrue(parkingLotA.isFull());
         assertTrue(parkingLotB.isNotFull());
+
+        //and when
+        Ticket ticketOfCarB = parkingBoy.park(carB);
+
+        //and then
+        assertEquals("CarBNum", ticketOfCarB.getCarNum());
+        assertTrue(parkingLotA.isFull());
+        assertTrue(parkingLotB.isFull());
     }
+
 }
