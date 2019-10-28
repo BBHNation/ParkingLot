@@ -1,6 +1,5 @@
 package tw.session.parkinglot;
 
-import java.util.UUID;
 import lombok.Getter;
 
 @Getter
