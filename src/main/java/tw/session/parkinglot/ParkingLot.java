@@ -14,6 +14,14 @@ public class ParkingLot {
         this.parkedCars = new ArrayList<>();
     }
 
+    public boolean isFull() {
+        return this.parkedCars.size() >= this.capacity;
+    }
+
+    public boolean isNotFull() {
+        return !isFull();
+    }
+
     public Ticket park(Car car) {
         if (parkedCars.size() >= capacity) {
             throw new ParkingLotFullException();
