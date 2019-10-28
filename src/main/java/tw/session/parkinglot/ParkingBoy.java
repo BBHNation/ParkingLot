@@ -22,9 +22,9 @@ public class ParkingBoy {
 
     public Car pick(Ticket ticket) {
         for (ParkingLot parkingLot : parkingLots) {
-            try {
+            if (parkingLot.isParkingCarOfCarNum(ticket.getCarNum())) {
                 return parkingLot.pick(ticket);
-            } catch (ParkingLotNotParkingTheCarException ignored) { }
+            }
         }
         throw new ParkingLotNotParkingTheCarException();
     }

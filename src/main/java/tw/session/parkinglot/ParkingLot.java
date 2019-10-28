@@ -22,6 +22,15 @@ public class ParkingLot {
         return !isFull();
     }
 
+    boolean isParkingCarOfCarNum(String carNum) {
+        for (Car car : parkedCars) {
+            if (car.getCarNum().equals(carNum)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Ticket park(Car car) {
         if (parkedCars.size() >= capacity) {
             throw new ParkingLotFullException();
