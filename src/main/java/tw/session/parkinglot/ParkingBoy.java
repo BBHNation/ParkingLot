@@ -19,4 +19,13 @@ public class ParkingBoy {
         }
         throw new ParkingLotFullException();
     }
+
+    public Car pick(Ticket ticket) {
+        for (ParkingLot parkingLot : parkingLots) {
+            try {
+                return parkingLot.pick(ticket);
+            } catch (ParkingLotNotParkingTheCarException ignored) { }
+        }
+        throw new ParkingLotNotParkingTheCarException();
+    }
 }

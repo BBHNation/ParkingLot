@@ -35,4 +35,17 @@ class ParkingBoyTest {
         assertTrue(parkingLotB.isFull());
     }
 
+    @Test
+    void shouldGetTheCar_whenPickCarByParkingBoy_givenParkingBoyParedTheCar() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot(1), new ParkingLot(1));
+        Car car = new Car("TheCarNum");
+        Ticket ticket = parkingBoy.park(car);
+
+        //when
+        Car pickedCar = parkingBoy.pick(ticket);
+
+        //then
+        assertEquals(car.getCarNum(), pickedCar.getCarNum());
+    }
 }
