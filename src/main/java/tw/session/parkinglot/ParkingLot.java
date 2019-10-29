@@ -2,6 +2,9 @@ package tw.session.parkinglot;
 
 import java.util.ArrayList;
 import java.util.List;
+import tw.session.parkinglot.exception.InvalidTicketException;
+import tw.session.parkinglot.exception.ParkingLotNotParkingTheCarException;
+import tw.session.parkinglot.exception.ParkingLotUnavailableException;
 
 public class ParkingLot implements Comparable {
 

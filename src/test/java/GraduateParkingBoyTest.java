@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import tw.session.parkinglot.Car;
-import tw.session.parkinglot.GraduateParkingBoy;
+import tw.session.parkinglot.parkingboy.GraduateParkingBoy;
 import tw.session.parkinglot.ParkingLot;
-import tw.session.parkinglot.ParkingLotUnavailableException;
+import tw.session.parkinglot.exception.ParkingLotUnavailableException;
 import tw.session.parkinglot.Ticket;
 
 class GraduateParkingBoyTest {

@@ -1,8 +1,13 @@
-package tw.session.parkinglot;
+package tw.session.parkinglot.parkingboy;
 
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.PriorityQueue;
+import tw.session.parkinglot.Car;
+import tw.session.parkinglot.ParkingLot;
+import tw.session.parkinglot.Ticket;
+import tw.session.parkinglot.exception.ParkingLotNotParkingTheCarException;
+import tw.session.parkinglot.exception.ParkingLotUnavailableException;
 
 public class SmartParkingBoy {
 

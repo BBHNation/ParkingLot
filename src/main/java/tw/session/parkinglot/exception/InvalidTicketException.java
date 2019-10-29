@@ -1,4 +1,4 @@
-package tw.session.parkinglot;
+package tw.session.parkinglot.exception;
 
 public class InvalidTicketException extends RuntimeException {
 
