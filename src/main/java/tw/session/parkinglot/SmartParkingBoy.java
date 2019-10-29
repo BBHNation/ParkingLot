@@ -13,4 +13,8 @@ public class SmartParkingBoy {
     public Ticket park(Car car) {
         return parkingLots.get(0).park(car);
     }
+
+    public Car pick(Ticket ticket) {
+        return parkingLots.get(0).pick(ticket);
+    }
 }
