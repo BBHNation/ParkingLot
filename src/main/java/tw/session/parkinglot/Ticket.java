@@ -13,7 +13,7 @@ public class Ticket {
         this.valid = true;
     }
 
-    void destroy() {
+    public void destroy() {
         this.valid = false;
     }
 
