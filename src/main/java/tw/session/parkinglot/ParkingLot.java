@@ -19,12 +19,7 @@ public class ParkingLot {
     }
 
     public boolean has(String carNum) {
-        for (Car car : parkedCars) {
-            if (car.getCarNum().equals(carNum)) {
-                return true;
-            }
-        }
-        return false;
+        return parkedCars.stream().anyMatch(car -> car.getCarNum().equals(carNum));
     }
 
     public Ticket park(Car car) {

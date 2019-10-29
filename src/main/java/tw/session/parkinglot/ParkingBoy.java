@@ -7,25 +7,25 @@ public class ParkingBoy {
 
     private List<ParkingLot> parkingLots;
 
-    public ParkingBoy(ParkingLot ... parkingLots) {
+    public ParkingBoy(ParkingLot... parkingLots) {
         this.parkingLots = Arrays.asList(parkingLots);
     }
 
     public Ticket park(Car car) {
-        for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.isNotFull()) {
-                return parkingLot.park(car);
-            }
-        }
-        throw new ParkingLotFullException();
+        return parkingLots
+            .stream()
+            .filter(ParkingLot::isNotFull)
+            .findFirst()
+            .orElseThrow(ParkingLotFullException::new)
+            .park(car);
     }
 
     public Car pick(Ticket ticket) {
-        for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.has(ticket.getCarNum())) {
-                return parkingLot.pick(ticket);
-            }
-        }
-        throw new ParkingLotNotParkingTheCarException();
+        return parkingLots
+            .stream()
+            .dropWhile(parkingLot -> !parkingLot.has(ticket.getCarNum()))
+            .findFirst()
+            .orElseThrow(ParkingLotNotParkingTheCarException::new)
+            .pick(ticket);
     }
 }
