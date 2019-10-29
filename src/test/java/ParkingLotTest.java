@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import tw.session.parkinglot.Car;
 import tw.session.parkinglot.InvalidTicketException;
 import tw.session.parkinglot.ParkingLot;
-import tw.session.parkinglot.ParkingLotFullException;
+import tw.session.parkinglot.ParkingLotUnavailableException;
 import tw.session.parkinglot.ParkingLotNotParkingTheCarException;
 import tw.session.parkinglot.Ticket;
 
@@ -32,7 +32,7 @@ class ParkingLotTest {
         Car car = new Car("OneCarNum");
 
         // then
-        assertThrows(ParkingLotFullException.class, () -> parkingLot.park(car));
+        assertThrows(ParkingLotUnavailableException.class, () -> parkingLot.park(car));
     }
 
     @Test
@@ -47,7 +47,7 @@ class ParkingLotTest {
 
         // then
         assertNotNull(firstTicket);
-        assertThrows(ParkingLotFullException.class, () -> parkingLot.park(secondCar));
+        assertThrows(ParkingLotUnavailableException.class, () -> parkingLot.park(secondCar));
     }
 
     @Test

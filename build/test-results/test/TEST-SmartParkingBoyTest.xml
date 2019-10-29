@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SmartParkingBoyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-29T06:12:49" hostname="CNbinhan.bai" time="0.009">
+<testsuite name="SmartParkingBoyTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-10-29T08:51:14" hostname="CNbinhan.bai" time="0.014">
   <properties/>
-  <testcase name="shouldGetCar_whenPickCarWithValidTicket_givenParkingBoyHasParkedTheCar()" classname="SmartParkingBoyTest" time="0.009"/>
+  <testcase name="shouldGetTicketOfTheCar_whenParkOneCar_givenSmartParkingBoyWithTwoParkingLots()" classname="SmartParkingBoyTest" time="0.009"/>
+  <testcase name="shouldGetTicketOfTheCar_whenParkOneCar_givenSmartParkingBoyWithOneParkingLot()" classname="SmartParkingBoyTest" time="0.0"/>
+  <testcase name="shouldGetCar_whenPickCarWithValidTicket_givenParkingBoyHasParkedTheCar()" classname="SmartParkingBoyTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

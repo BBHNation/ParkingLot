@@ -16,7 +16,7 @@ public class ParkingBoy {
             .stream()
             .filter(ParkingLot::isNotFull)
             .findFirst()
-            .orElseThrow(ParkingLotFullException::new)
+            .orElseThrow(ParkingLotUnavailableException::new)
             .park(car);
     }
 

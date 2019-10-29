@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import tw.session.parkinglot.Car;
 import tw.session.parkinglot.ParkingBoy;
 import tw.session.parkinglot.ParkingLot;
-import tw.session.parkinglot.ParkingLotFullException;
+import tw.session.parkinglot.ParkingLotUnavailableException;
 import tw.session.parkinglot.Ticket;
 
 class ParkingBoyTest {
@@ -64,7 +64,7 @@ class ParkingBoyTest {
         Car car = new Car("TheCarNum");
 
         //then
-        assertThrows(ParkingLotFullException.class, () -> parkingBoy.park(car));
+        assertThrows(ParkingLotUnavailableException.class, () -> parkingBoy.park(car));
     }
 
     @Test
