@@ -9,7 +9,7 @@ import tw.session.parkinglot.ParkingLot;
 import tw.session.parkinglot.SmartParkingBoy;
 import tw.session.parkinglot.Ticket;
 
-class SmartParkingBoyTest {
+class SmartGraduateParkingBoyTest {
 
     @Test
     void shouldGetTicketOfTheCar_whenParkOneCar_givenSmartParkingBoyWithOneParkingLot() {
