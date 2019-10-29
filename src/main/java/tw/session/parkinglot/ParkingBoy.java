@@ -22,7 +22,7 @@ public class ParkingBoy {
 
     public Car pick(Ticket ticket) {
         for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.isParkingCarOfCarNum(ticket.getCarNum())) {
+            if (parkingLot.has(ticket.getCarNum())) {
                 return parkingLot.pick(ticket);
             }
         }

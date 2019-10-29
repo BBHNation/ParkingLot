@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -21,20 +22,12 @@ class ParkingBoyTest {
         Car carB = new Car("CarBNum");
 
         //when
-        Ticket ticketOfCarA = parkingBoy.park(carA);
+        parkingBoy.park(carA);
+        parkingBoy.park(carB);
 
         //then
-        assertEquals("CarANum", ticketOfCarA.getCarNum());
-        assertTrue(parkingLotA.isFull());
-        assertTrue(parkingLotB.isNotFull());
-
-        //and when
-        Ticket ticketOfCarB = parkingBoy.park(carB);
-
-        //and then
-        assertEquals("CarBNum", ticketOfCarB.getCarNum());
-        assertTrue(parkingLotA.isFull());
-        assertTrue(parkingLotB.isFull());
+        assertTrue(parkingLotA.has(carA.getCarNum()));
+        assertTrue(parkingLotB.has(carB.getCarNum()));
     }
 
     @Test
@@ -56,7 +49,7 @@ class ParkingBoyTest {
         parkingBoy.park(car);
 
         //then
-        assertTrue(firstParkingLot.isFull());
+        assertFalse(firstParkingLot.isNotFull());
         assertTrue(secondParkingLot.isNotFull());
     }
 

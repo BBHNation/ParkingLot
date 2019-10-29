@@ -14,15 +14,11 @@ public class ParkingLot {
         this.parkedCars = new ArrayList<>();
     }
 
-    public boolean isFull() {
-        return this.parkedCars.size() >= this.capacity;
-    }
-
     public boolean isNotFull() {
-        return !isFull();
+        return this.parkedCars.size() < this.capacity;
     }
 
-    boolean isParkingCarOfCarNum(String carNum) {
+    public boolean has(String carNum) {
         for (Car car : parkedCars) {
             if (car.getCarNum().equals(carNum)) {
                 return true;
