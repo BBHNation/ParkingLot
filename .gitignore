@@ -1,6 +1,8 @@
 # Compiled class file
 *.class
 
+*.py
+
 # Log file
 *.log
 
