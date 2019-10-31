@@ -48,4 +48,17 @@ class SuperParkingBoyTest {
 
         assertTrue(secondParkingLot.has(car.carNum))
     }
+
+    @Test
+    internal fun shouldParkInFirstParkingLot_whenParkOneCarBySuperParkingBoy_givenThreeEmptyParkingLots() {
+        val firstParkingLot = ParkingLot(10)
+        val secondParkingLot = ParkingLot(10)
+        val thirdParkingLot = ParkingLot(10)
+        val superParkingBoy = SuperParkingBoy(listOf(firstParkingLot, secondParkingLot, thirdParkingLot))
+        val car = Car("川A 38BR7")
+
+        superParkingBoy.park(car)
+
+        assertTrue(firstParkingLot.has(car.carNum))
+    }
 }
