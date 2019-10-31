@@ -21,6 +21,10 @@ public class ParkingLot implements Comparable {
         return capacity - parkedCars.size();
     }
 
+    public float vacancyRate() {
+        return 1 - (float)parkedCars.size()/(float)capacity;
+    }
+
     public boolean isNotFull() {
         return this.parkedCars.size() < this.capacity;
     }
